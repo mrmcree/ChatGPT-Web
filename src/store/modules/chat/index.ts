@@ -6,6 +6,9 @@ export const useChatStore = defineStore('chat-store', {
   state: (): Chat.ChatState => getLocalState(),
 
   getters: {
+    getEnabledNetwork(state) {
+      return state.network === true;
+    },
     getChatHistoryByCurrentActive(state: Chat.ChatState) {
       const index = state.history.findIndex(item => item.uuid === state.active)
       if (index !== -1)
@@ -23,11 +26,15 @@ export const useChatStore = defineStore('chat-store', {
   },
 
   actions: {
-    setUsingContext(context: boolean) {
-      this.usingContext = context
-      this.recordState()
+    toggleNetwork() {
+      debugger;
+      this.network = !this.network;
+      // this.reloadRoute()
+      // if (this.getChatHistoryByCurrentActive) {
+        // this.getChatHistoryByCurrentActive.network = !this.getChatHistoryByCurrentActive.network;
+      // }
+      
     },
-
     addHistory(history: Chat.History, chatData: Chat.Chat[] = []) {
       this.history.unshift(history)
       this.chat.unshift({ uuid: history.uuid, data: chatData })
@@ -170,6 +177,7 @@ export const useChatStore = defineStore('chat-store', {
       if (!uuid || uuid === 0) {
         if (this.chat.length) {
           this.chat[0].data = []
+          this.history[0].title = 'New Chat'
           this.recordState()
         }
         return
@@ -178,6 +186,7 @@ export const useChatStore = defineStore('chat-store', {
       const index = this.chat.findIndex(item => item.uuid === uuid)
       if (index !== -1) {
         this.chat[index].data = []
+        this.history[index].title = 'New Chat'
         this.recordState()
       }
     },

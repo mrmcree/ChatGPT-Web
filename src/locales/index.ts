@@ -21,7 +21,9 @@ const i18n = createI18n({
   },
 })
 
-export const t = i18n.global.t
+export function t(key: string) {
+  return i18n.global.t(key)
+}
 
 export function setLocale(locale: Language) {
   i18n.global.locale = locale
