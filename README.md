@@ -233,7 +233,7 @@ services:
 - `OPENAI_API_BASE_URL`  可选，设置 `OPENAI_API_KEY` 时可用
 - `OPENAI_API_MODEL`  可选，设置 `OPENAI_API_KEY` 时可用
 ###  使用 Railway 部署
-
+123
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/yytmgc)
 
 #### Railway 环境变量
