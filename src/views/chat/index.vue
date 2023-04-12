@@ -447,7 +447,7 @@ onUnmounted(() => {
         >
           <template v-if="!dataSources.length">
             <div class="flex items-center flex-col justify-center mt-4 text-center ">
-              <div>如果你觉得做的好，可以给我买一瓶冰阔落</div>
+              <div> 如果你觉得做的好，可以给我买一瓶冰阔落 </div>
               <div>
                 <img src="https://i.hd-r.cn/6f9fa4ab1e3eb0a252d8206868a38441.jpg" width="200" height="100" alt="kele">
               </div>
